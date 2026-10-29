@@ -1,3 +1,18 @@
+# BetterTeam Signup Redesign (prototype)
+
+A working prototype of a redesigned employer signup flow for BetterTeam. It is a take-home exercise, not production code.
+
+## The problem
+
+Signup counts as complete when the user creates their first job. The current flow has two problems:
+
+1. **Friction.** It asks for more than a new user needs. It also treats two very different users the same way: a recruiter who has every job detail ready, and a business owner who hasn't decided on details or a description.
+2. **Wrong audience.** Some job seekers sign up thinking BetterTeam is Indeed.
+
+Goal: get enough data for moderation to approve the company and job, with as little effort as possible.
+
+---
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>

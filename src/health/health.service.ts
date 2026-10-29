@@ -7,8 +7,8 @@ import { DataSource } from 'typeorm';
 
 export interface HealthStatus {
   status: 'ok' | 'error';
-  server: { status: 'up';  };
-  database: { status: 'up' | 'down';  };
+  server: { status: 'up' };
+  database: { status: 'up' | 'down' };
   timestamp: string;
 }
 

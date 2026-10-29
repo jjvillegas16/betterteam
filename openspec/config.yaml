@@ -2,22 +2,25 @@ schema: spec-driven
 
 # Project context (optional)
 # This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  Tech stack: NestJS 12, TypeScript (strict, ESM with nodenext), Node.js,
+  Vitest + supertest, oxlint, Prettier, NestJS Observe.
+  Follow official NestJS conventions strictly: feature modules
+  (module/controller/service/dto/entities), constructor DI, class-based DTOs
+  with class-validator, guards/pipes/interceptors/filters for cross-cutting
+  concerns, built-in HTTP exceptions, @nestjs/config for configuration.
+  Relative imports use a `.js` extension. See AGENTS.md for full conventions
+  and commands.
 
 # Per-artifact rules (optional)
 # Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+rules:
+  design:
+    - Describe changes in NestJS terms (modules, providers, controllers, guards, pipes, interceptors, filters)
+    - Prefer the NestJS-documented approach over custom solutions
+  tasks:
+    - Group tasks by module and generate scaffolding with `nest g` where possible
+    - Include unit (`*.spec.ts`) and e2e (`*.e2e-spec.ts`) test tasks for new controllers, services and endpoints
 
 # Per-operation guidance (optional)
 # Add advisory guidance for how apply and archive work should be conducted.

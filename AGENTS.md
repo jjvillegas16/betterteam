@@ -5,17 +5,16 @@
 - NestJS 12 (`@nestjs/common`, `@nestjs/core`, `@nestjs/platform-express`) on Node.js, TypeScript (strict, ES2023)
 - ESM project (`"type": "module"`, `module: nodenext`): relative imports **must** end in `.js` (e.g. `import { AppService } from './app.service.js'`)
 - Decorators with `emitDecoratorMetadata` and `experimentalDecorators`; `reflect-metadata` and `rxjs` are core deps
-- Tests: Vitest (unit) and Vitest + supertest (e2e). Lint: oxlint (type-aware). Format: Prettier
+- Tests: Vitest + supertest (unit and integration; no e2e). Lint: oxlint (type-aware). Format: Prettier
 - Observability: NestJS Observe (see below)
 
 ## Commands
 
 - `npm run start:dev`: run with watch
 - `npm run build`: `nest build`
-- `npm run lint`: oxlint, type-aware, on `src/` and `test/`
-- `npm run format`: Prettier on `src/` and `test/`
+- `npm run lint`: oxlint, type-aware, on `src/`
+- `npm run format`: Prettier on `src/`
 - `npm test`: unit tests (`*.spec.ts` in `src/`)
-- `npm run test:e2e`: e2e tests (`*.e2e-spec.ts` in `test/`)
 
 Run lint and tests before finishing a task.
 
@@ -38,8 +37,8 @@ Follow the official NestJS conventions and documentation strictly. When unsure, 
 ## Testing
 
 - Unit tests sit next to the code as `<name>.spec.ts` and use `Test.createTestingModule` from `@nestjs/testing`. Mock dependencies via providers (`useValue`/`useFactory`).
-- E2E tests live in `test/` as `*.e2e-spec.ts` and use supertest against a real `INestApplication`.
-- Every new controller/service gets a spec; every new endpoint gets an e2e test.
+- Integration tests sit next to the code as `<name>.integration.spec.ts` and use supertest against an `INestApplication` built from the feature module, with external dependencies (e.g. the database) overridden.
+- Every new controller/service gets a unit spec; every new endpoint gets an integration test.
 
 ## Production data: NestJS Observe
 
